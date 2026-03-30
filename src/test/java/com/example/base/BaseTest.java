@@ -43,6 +43,9 @@ public class BaseTest {
             if (headlessProperty != null && headlessProperty.equalsIgnoreCase("true")) {
                 options.addArguments("--headless=new"); // New Chrome headless mode
                 options.addArguments("--window-size=1920,1080"); // Explicit size for headless interactions (drag & drop fix)
+                options.addArguments("--no-sandbox"); // Required for CI/CD environments
+                options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems in Linux containers
+                options.addArguments("--disable-gpu"); // Useful for headless mode reliability
             }
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {

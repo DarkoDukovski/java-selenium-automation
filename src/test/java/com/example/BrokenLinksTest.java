@@ -29,6 +29,7 @@ public class BrokenLinksTest extends BaseTest {
 
         for (WebElement link : links) {
             String url = link.getAttribute("href");
+            String linkText = link.getText();
             
             try {
                 HttpURLConnection conn = (HttpURLConnection) new URI(url).toURL().openConnection();
@@ -37,10 +38,14 @@ public class BrokenLinksTest extends BaseTest {
                 
                 int responseCode = conn.getResponseCode();
                 
-                log.info(link.getText() + " -> " + url + " is " + responseCode);
+                log.info(linkText + " -> " + url + " is " + responseCode);
                 
-                // Assert that the response code is less than 400 (4xx and 5xx are errors)
-                softAssert.assertTrue(responseCode < 400, "The link with Text: " + link.getText() + " is broken with code " + responseCode);
+                // The practice page contains an intentionally broken link called "Broken Link"
+                if (linkText.equalsIgnoreCase("Broken Link")) {
+                    softAssert.assertTrue(responseCode >= 400, "The link with Text: " + linkText + " is expected to be broken but returned code " + responseCode);
+                } else {
+                    softAssert.assertTrue(responseCode < 400, "The link with Text: " + linkText + " is broken with code " + responseCode);
+                }
                 
             } catch (IOException | URISyntaxException e) {
                 softAssert.fail("Exception while trying to connect to " + url);
