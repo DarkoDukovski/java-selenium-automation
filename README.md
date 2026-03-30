@@ -64,9 +64,11 @@ src/test/java/com/example/
    ```bash
    git clone https://github.com/DarkoDukovski/java-selenium-automation.git
    ```
-2. Navigate to the project directory:
+2. Navigate to the project directory (or open it directly in your IDE):
    ```bash
-   cd demo
+   cd java-selenium-automation
+   # Note: If downloaded as a ZIP file, the folder will be named:
+   # cd java-selenium-automation-main
    ```
 3. Install the required dependencies:
    ```bash
