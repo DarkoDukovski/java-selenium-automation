@@ -32,7 +32,8 @@ src/test/java/com/example/
 ├── PracticeTests.java         # Alerts & Dropdown interaction tests
 ├── WebTableTest.java          # Filtering, Searching & Pagination tests
 ├── AdvancedInteractionsTest.java # iFrames, Drag & Drop, Mouse Hover
-└── BrokenLinksTest.java       # Hybrid API/UI testing for 404 links
+├── BrokenLinksTest.java       # Hybrid API/UI testing for 404 links
+└── TestListeners.java         # TestNG Listener for ExtentReports & Screenshots
 ```
 
 ## 📋 Features & Skills Showcased
