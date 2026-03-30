@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Full Regression Suite">
+    <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="com.example.TestListeners"/>
+    </listeners>
+    <test name="E2E Framework Tests">
+        <classes>
+            <class name="com.example.StoreTest"/>
+            <class name="com.example.ChildWindowTest"/>
+            <class name="com.example.RelativeLocatorsTest"/>
+            <class name="com.example.PracticeTests"/>
+            <class name="com.example.WebTableTest"/>
+            <!-- Advanced portfolio scenarios -->
+            <class name="com.example.AdvancedInteractionsTest"/>
+            <class name="com.example.BrokenLinksTest"/>
+        </classes>
+    </test>
+</suite>

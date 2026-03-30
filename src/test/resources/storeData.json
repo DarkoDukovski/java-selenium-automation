@@ -1,0 +1,12 @@
+[
+  {
+    "items": ["Cucumber", "Brocolli"],
+    "promoCode": "rahulshettyacademy",
+    "expectedMessage": "Code applied ..!"
+  },
+  {
+    "items": ["Beetroot", "Carrot", "Tomato"],
+    "promoCode": "rahulshettyacademy",
+    "expectedMessage": "Code applied ..!"
+  }
+]

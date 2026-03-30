@@ -1,0 +1,32 @@
+name: Java Maven Selenium CI/CD
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Run Selenium Tests (Headless)
+      # We pass the headless system property so our BaseTest triggers ChromeOptions.addArguments("--headless=new")
+      run: mvn clean test -Dheadless=true
+
+    - name: Upload Test Reports
+      if: always() # This ensures reports are uploaded even if tests fail
+      uses: actions/upload-artifact@v3
+      with:
+        name: Extent-HTML-Report
+        path: target/surefire-reports/
