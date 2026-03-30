@@ -53,10 +53,47 @@ src/test/java/com/example/
 
 ## 🚀 Getting Started
 
-### Running Tests
-To run the entire professional suite:
+### Prerequisites
+- **Java JDK 17** or higher
+- **Maven** installed and configured in your system `PATH`
+- **Git**
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DarkoDukovski/java-selenium-automation.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd demo
+   ```
+3. Install the required dependencies:
+   ```bash
+   mvn clean install -DskipTests
+   ```
+
+### Running the Tests
+To execute the entire test suite (using `testng.xml`):
 ```bash
-mvn test
+mvn clean test
 ```
+
+To execute the tests in **Headless mode** (no browser UI, great for CI environments):
+```bash
+mvn clean test -Dheadless=true
+```
+
+### Configuration
+You can easily switch the target browser or adjust the global timeout by editing the `src/main/resources/config.properties` file:
+```properties
+browser=chrome  # Options: chrome, firefox, edge
+timeout=10
+```
+
+### Viewing the Test Reports
+After the test run completes, an interactive HTML report is automatically generated using **ExtentReports**.
+1. Open the project folder.
+2. Navigate to the newly created `reports/` directory.
+3. Open `index.html` in any web browser to view the test metrics and execution logs (including screenshots for any failed tests).
 
 
