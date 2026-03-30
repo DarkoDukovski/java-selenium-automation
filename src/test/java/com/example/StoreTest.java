@@ -37,7 +37,7 @@ public class StoreTest extends BaseTest {
     @DataProvider
     public Object[][] getData() throws IOException {
         // Provides execution data by reading the JSON file
-        String path = System.getProperty("user.dir") + "\\src\\test\\resources\\storeData.json";
+        String path = System.getProperty("user.dir") + "/src/test/resources/storeData.json";
         List<HashMap<String, Object>> data = JsonReader.getJsonDataToMap(path);
         
         return new Object[][] {
